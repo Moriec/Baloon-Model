@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.GraphicOutput.GraphicDisplay;
 import org.example.GraphicOutput.GraphicEngine;
 
 import javax.swing.*;
@@ -8,12 +9,31 @@ import java.awt.event.ActionListener;
 
 public class ControlDevice {
 
+    private static final String nameMainFrame = "Main";
+    private static final int weightSize = 1980, heightSize = 1080;
+    private static final int delayTimer = 16; // 60 fps
+
     public static void main(String[] args){
-        GraphicEngine.main();
-        Timer timer = new Timer(16, new ActionListener() {
+
+        // Создаем графический движок
+        GraphicEngine graphicEngine = new GraphicEngine(nameMainFrame, weightSize, heightSize);
+        graphicEngine.startShowFrame();
+
+        // Обновление кадров
+        Timer timer = new Timer(delayTimer, new ActionListener() {
+            int countChangeFrame = 1;
             @Override
             public void actionPerformed(ActionEvent e) {
-                GraphicEngine.updatePixels();
+
+                // GraphicDisplay для обьеденения разных компонентов в одну картинку
+                GraphicDisplay graphicDisplay = new GraphicDisplay(weightSize, heightSize);
+
+                /*
+                ...
+                 */
+
+                graphicEngine.updatePixels(graphicDisplay.getImagePixels()); //Отрисовываем актуальное изображение
+                countChangeFrame++;
 
             }
         });
