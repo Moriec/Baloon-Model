@@ -1,14 +1,28 @@
 package org.example.GraphicOutput;
 
 public class Pixel {
-    private int x, y, red, green, blue;
+    private int x, y, red, green, blue, color;
 
-    public Pixel(int x, int blue, int green, int red, int y) {
+    public Pixel(int x, int y, int blue, int green, int red) {
         this.x = x;
         this.blue = blue;
         this.green = green;
         this.red = red;
         this.y = y;
+    }
+
+    public Pixel(int x, int y, int color){
+        this.x = x;
+        this.y = y;
+        this.color = color;
+    }
+
+    public int getColor() {
+        return color;
+    }
+
+    public void setColor(int color) {
+        this.color = color;
     }
 
     public int getX() {

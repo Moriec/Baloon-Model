@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.Fields.Baloon;
 import org.example.GraphicOutput.GraphicDisplay;
 import org.example.GraphicOutput.GraphicEngine;
 
@@ -28,6 +29,9 @@ public class ControlDevice {
                 // GraphicDisplay для обьеденения разных компонентов в одну картинку
                 GraphicDisplay graphicDisplay = new GraphicDisplay(weightSize, heightSize);
 
+
+                Baloon baloon = new Baloon(8, 0, 0, 0, 0, 255, 255, 0);
+                graphicDisplay.setPixels(baloon.getPixels());
                 /*
                 ...
                  */

@@ -36,13 +36,18 @@ public class GraphicEngine {
     public void updatePixels(int [][][] imagePixels) {
 
         // Проставляем пиксели
-        for (int y = 0; y < imagePixels.length; y++) {
-            for (int x = 0; x < imagePixels[0].length; x++) {
-                int red = imagePixels[y][x][0];
-                int green = imagePixels[y][x][1];
-                int blue = imagePixels[y][x][2];
+        for (int x = 0; x < imagePixels.length; x++) {
+            for (int y = 0; y < imagePixels[0].length; y++) {
+                int red = imagePixels[x][y][0];
+                int green = imagePixels[x][y][1];
+                int blue = imagePixels[x][y][2];
                 int color = (red << 16) | (green << 8) | blue;
-                image.setRGB(x, y, color);
+                try {
+                    image.setRGB(x, y, color);
+                }
+                catch (Exception e){
+                    System.out.println(y + " " + x);
+                }
             }
         }
 
